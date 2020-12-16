@@ -54,6 +54,13 @@ class User extends Authenticatable
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments() {
+        return $this->hasMany(Comment::class, 'author_id', 'id');
+    }
+
+    /**
      * @return bool
      */
     public function isAdmin() {

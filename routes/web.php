@@ -22,5 +22,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::resource('posts', 'PostController');
+Route::post('comment/store', 'CommentController@store');
+Route::delete('comment/{commentId}', 'CommentController@destroy');
 
 require __DIR__.'/auth.php';

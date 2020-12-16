@@ -15,4 +15,11 @@ class Post extends Model
     public function author() {
         return $this->hasOne(User::class, 'id', 'author_id');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments() {
+        return $this->hasMany(Comment::class, 'post_id', 'id');
+    }
 }

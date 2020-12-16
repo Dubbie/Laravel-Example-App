@@ -14,7 +14,9 @@
                             <a href="{{ action('PostController@show', $post) }}" class="list-group-item text-dark">
                                 <h5 class="fw-bold">{{ $post->title }}</h5>
                                 <p class="mb-3"><small><b>{{ $post->author->name }}</b> - {{ $post->created_at->format('Y-m-d H:i') }}</small></p>
-                                <p class="mb-0">{{ \Illuminate\Support\Str::limit($post->content, 250) }}</p>
+                                <p class="mb-2">{{ \Illuminate\Support\Str::limit($post->content, 250) }}</p>
+
+                                <p class="mb-0"><small class="text-muted">{{ $post->comments()->count() }} comments</small></p>
                             </a>
                         @endforeach
                     </div>
